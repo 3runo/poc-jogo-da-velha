@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import UsersReducer from './user-reducer'
+import GameReducer from './game-reducer'
+import ScoreReducer from './score-reducer'
 
 // Setting global state
-const rootReducer = combineReducers({
-	user: UsersReducer
+const combinedReducers = combineReducers({
+	game: GameReducer,
+	score: ScoreReducer
 })
 
-export default rootReducer;
+export default combinedReducers;

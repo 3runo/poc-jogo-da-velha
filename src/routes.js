@@ -1,14 +1,14 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
-import CoverPage from './components/CoverPage'
-import MainPage from './components/MainPage'
+import Home from './components/Home'
+import Game from './components/Game'
 import App from './components/App'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={CoverPage} />
-    <Route path="home" component={CoverPage} />
-    <Route path="main" component={MainPage} />
+    <IndexRoute component={Home} />
+    <Route path="home" component={Home} />
+    <Route path="game" component={Game} />
   </Route>
 )
