@@ -1,16 +1,23 @@
 import { ACTIONS } from '../actions'
 
-const INITIAL_STATE = {
+const initialState = {
 	playerX: 0,
 	playerO: 0
 }
 
-export default function scoreReducerDefinition (state = INITIAL_STATE, action) {
-	switch (action.type) {
-		case ACTIONS.WWWWWW:
-			return action.payload
-		default:
-			break
+export default function scoreReducerDefinition (state = initialState, action) {
+	const { type, payload } = action
+
+	if (payload === undefined) {
+		return initialState
+	}
+
+	switch (type) {
+		case ACTIONS.GAME_OVER: {
+			const prop = payload.turn === 'X' ? 'playerO' : 'playerX'
+
+			return { ...state, [prop]: state[prop] + 1 }
+		}
 	}
 
 	return state

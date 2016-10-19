@@ -1,11 +1,13 @@
-import './Score.styl';
+import './Score.styl'
 import React from 'react'
-// import { browserHistory } from 'react-router'
-import { connect } from 'react-redux';
 
-class Score extends React.Component {
+export default class Score extends React.Component {
+	static propTypes = {
+		score: React.PropTypes.object.isRequired
+	}
+
   render() {
-		const { playerX, playerO } = this.props.score;
+		const { playerX, playerO } = this.props.score
 
     return (
 			<div className='Score'>
@@ -21,9 +23,3 @@ class Score extends React.Component {
     )
   }
 }
-
-function mapStateToProps(state) {
-	return { score: state.score }
-}
-
-export default connect(mapStateToProps)(Score)

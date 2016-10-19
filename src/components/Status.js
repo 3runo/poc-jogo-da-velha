@@ -1,12 +1,15 @@
-import './Status.styl';
+import './Status.styl'
 import React from 'react'
-// import { browserHistory } from 'react-router'
 
 export default class Status extends React.Component {
+	static propTypes = {
+		status: React.PropTypes.string.isRequired
+	}
+
   render() {
     return (
 			<div className='Status'>
-				Status
+				{this.props.status}
 			</div>
     )
   }
