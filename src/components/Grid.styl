@@ -1,13 +1,17 @@
 @import '../../style/colors.styl'
+@import '../../style/transition.styl'
 
 .Grid
 	padding 20px
+
 	table
 		width 100%
 		height 100%
 		max-width 500px
 		max-height 500px
 		margin 0 auto
+		-webkit-font-smoothing antialiased
+
 		tbody
 			tr
 				td
@@ -15,12 +19,19 @@
 					width 33.33333333333333%
 					min-width 166px
 					height 166px
-					font-size 100px
+					font-size 50px
 					line-height 1
 					vertical-align middle
 					text-align center
 					border-left 3px solid $darker
 					border-top 3px solid $darker
+					transition(all .25s ease-in-out)
+					&.marked
+						font-size 100px
+					&.marked.mark-x
+						color $blue-0
+					&.marked.mark-o
+						color $green-0
 
 				&:nth-child(1)>td
 					border-top none

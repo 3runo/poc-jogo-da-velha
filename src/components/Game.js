@@ -21,9 +21,9 @@ class Game extends React.Component {
 
 		return (
 			<div className="Game">
-				<Score score={score} />
-				<Status status={game.status} />
+				<Score score={score} turn={game.turn} />
 				<Grid game={game} />
+				<Status status={game.status} />
 				<button
 					type="button"
 					className="btn-restart"

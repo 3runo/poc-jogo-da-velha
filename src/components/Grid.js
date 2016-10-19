@@ -45,9 +45,12 @@ class Grid extends React.Component {
 
 		for (const position in boardPositions) {
 			if (boardPositions.hasOwnProperty(position)) {
+				const mark = boardPositions[position] || ''
+				const className = mark ? `marked mark-${mark.toLowerCase()}` : ''
+
 				colums.push(
-					<td key={position} onClick={() => this.onBoardClick(position)}>
-						{boardPositions[position] || ''}
+					<td key={position} className={className} onClick={() => this.onBoardClick(position)}>
+						{mark}
 					</td>
 				)
 
@@ -71,7 +74,7 @@ class Grid extends React.Component {
 		}
 
 		// Makes the move
-		onPlayerTurnComplete(position, turn)
+		onPlayerTurnComplete(position, turn)		
 	};
 
 	render() {
