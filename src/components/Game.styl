@@ -6,17 +6,22 @@
 	width 546px
 	margin 30px auto
 	box-shadow 0px 1px 4px 0px rgba(0,0,0,0.2)
-	
-	.btn-restart
-		background-color darken($lighter, 2%)
-		width 100%
-		text-transform uppercase
-		font-weight bold
-		outline none
-		margin 0
-		padding 2px 0 0 0
-		border 0
-		transition(all .25s ease-in-out)
-		
-		&:hover
-			background-color darken($lighter, 10%)
+
+	.buttons-area
+		display flex
+		align-items center
+
+		button
+			background-color darken($lighter, 2%)
+			width 100%
+			font-size 12px
+			text-transform uppercase
+			font-weight bold
+			outline none
+			margin 0
+			padding 8px 0
+			border 0
+			transition(all .25s ease-in-out)
+			
+			&:hover
+				background-color darken($lighter, 10%)

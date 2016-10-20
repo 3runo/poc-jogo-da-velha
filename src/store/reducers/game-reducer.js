@@ -29,8 +29,7 @@ export default function gameReducerDefinition(state = initialState, action) {
 			const turn = payload.turn
 			const nextTurn = turn === 'X' ? 'O' : 'X'
 			const boardPositions = Object.assign({}, state.boardPositions)
-			// TODO: Create some variations of status message
-			const status = `Player ${turn} did his move, Player ${nextTurn} is your turn`
+			const status = randomAfterPlayerTurnMessages(turn, nextTurn)
 
 			boardPositions[payload.position] = turn
 
@@ -38,11 +37,10 @@ export default function gameReducerDefinition(state = initialState, action) {
 		}
 		case ACTIONS.GAME_OVER: {
 			const lastTurn = payload.turn === 'X' ? 'O' : 'X'
-			// TODO: Create some variations of status message
-			let status = `The winner is Player ${lastTurn}.`
+			let status = randomGameOverMessages(lastTurn)
 
 			if (!payload.hasWinner) {
-				status = 'Play again, let\'s untie this match'
+				status = randomDrawMessages()
 			}
 
 			return { ...state, isGameOver: true, status }
@@ -52,4 +50,39 @@ export default function gameReducerDefinition(state = initialState, action) {
 	}
 
 	return state
+}
+
+
+function randomAfterPlayerTurnMessages(turn, nextTurn) {
+	const messageList = [
+		`Player ${turn} did his move, Player ${nextTurn} is your turn`,
+		`Player ${nextTurn} turn`,
+		`${nextTurn} turn`,
+	]
+
+	return messageList[Math.floor(Math.random()*messageList.length)]
+}
+
+function randomGameOverMessages(lastTurn) {
+	const messageList = [
+		`The winner is Player ${lastTurn}.`,
+		`Player ${lastTurn} won.`,
+		`${lastTurn} Won.`,
+		`${lastTurn} is the Winner.`,
+	]
+
+	return messageList[Math.floor(Math.random()*messageList.length)]
+}
+
+function randomDrawMessages() {
+	const messageList = [
+		'Play again, let\'s untie this match',
+		'Draw',
+		'Nobody wins',
+		'Nobody loses',
+		'Nobody won',
+		'no one loses',
+	]
+
+	return messageList[Math.floor(Math.random()*messageList.length)]
 }

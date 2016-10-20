@@ -14,12 +14,12 @@ export default class Score extends React.Component {
     return (
 			<div className='Score'>
 				<div className={`player-left${turn==='X' ? ' active' : ''}`}>
-					<span>Player X</span>
-					<div className='scoreboard'>{playerX}</div>
+					<strong>Player X</strong>
+					<div className="scoreboard">{playerX}</div>
 				</div>
 				<div className={`player-right${turn==='O' ? ' active' : ''}`}>
-					<div className='scoreboard'>{playerO}</div>
-					<span>Player O</span>
+					<div className="scoreboard">{playerO}</div>
+					<strong>Player O</strong>
 				</div>
 			</div>
     )

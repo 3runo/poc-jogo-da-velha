@@ -66,10 +66,10 @@ class Grid extends React.Component {
 
 	onBoardClick = (position) => {
 		const { onPlayerTurnComplete, game } = this.props
-		const { boardPositions, turn } = game
+		const { boardPositions, turn, isGameOver } = game
 
 		// Checking if space is available
-		if (boardPositions[position] !== null) {
+		if (isGameOver || boardPositions[position] !== null) {
 			return
 		}
 
@@ -78,10 +78,10 @@ class Grid extends React.Component {
 	};
 
 	render() {
-		const { boardPositions } = this.props.game
+		const { boardPositions, isGameOver } = this.props.game
 
 		return (
-			<div className='Grid'>
+			<div className={`Grid${isGameOver ? ' game-over' : ''}`}>
 				<table>
 					<tbody>
 						{this.renderBoard(boardPositions)}

@@ -1,11 +1,11 @@
 import { ACTIONS } from '../actions'
 
 const initialState = {
-	playerX: 0,
-	playerO: 0
+	playerX: window.localStorage.getItem('playerX') || 0,
+	playerO: window.localStorage.getItem('playerO') || 0
 }
 
-export default function scoreReducerDefinition (state = initialState, action) {
+export default function scoreReducerDefinition(state = initialState, action) {
 	const { type, payload } = action
 
 	if (payload === undefined) {
@@ -15,8 +15,17 @@ export default function scoreReducerDefinition (state = initialState, action) {
 	switch (type) {
 		case ACTIONS.GAME_OVER: {
 			const prop = payload.turn === 'X' ? 'playerO' : 'playerX'
+			const value = parseInt(state[prop], 10) + 1
 
-			return { ...state, [prop]: state[prop] + 1 }
+			window.localStorage.setItem(prop, value)
+
+			return { ...state, [prop]: value }
+		}
+		case ACTIONS.SCORE_RESET: {
+			window.localStorage.removeItem('playerX')
+			window.localStorage.removeItem('playerO')
+
+			return { playerX: 0, playerO: 0 }
 		}
 	}
 
