@@ -15,7 +15,7 @@ class Game extends React.Component {
 		scoreReset: React.PropTypes.func.isRequired,
 		gameRestart: React.PropTypes.func.isRequired
 	}
-
+	
 	render() {
 		const { score, game, scoreReset, gameRestart } = this.props
 
@@ -37,7 +37,6 @@ class Game extends React.Component {
 	}
 }
 
-// Redux helpers
 function mapStateToProps(state) {
 	return {
 		game: state.game,

@@ -7,7 +7,7 @@ export default class Home extends React.Component {
 		return (
 			<div className="Home">
 				<div className="col-sm-12">
-					<h3>Tic Tac Toe.</h3>
+					<h3>About the game</h3>
 					<p>
 						Is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.
 					</p>

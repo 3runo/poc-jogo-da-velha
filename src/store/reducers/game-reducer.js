@@ -12,8 +12,8 @@ export const initialState = {
 		8: null,
 		9: null,
 	},
-	status: '',
-	turn: 'X', // 'X'|'O'
+	status: 'Player X turn',
+	turn: 'X',
 	isGameOver: false
 }
 
@@ -54,9 +54,9 @@ export default function gameReducerDefinition(state = initialState, action) {
 
 export function randomAfterPlayerTurnMessages(turn, nextTurn) {
 	const messageList = [
-		`Player ${turn} did his move, Player ${nextTurn} is your turn`,
-		`Player ${nextTurn} turn`,
 		`${nextTurn} turn`,
+		`Player ${nextTurn} turn`,
+		`Player ${turn} did his move, Player ${nextTurn} is your turn`,
 	]
 
 	return messageList[Math.floor(Math.random()*messageList.length)]
