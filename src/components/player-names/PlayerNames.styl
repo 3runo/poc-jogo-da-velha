@@ -1,0 +1,18 @@
+@import './../../style/colors'
+
+.PlayerNames
+	display flex
+	align-items center
+	justify-content space-between
+	padding-bottom 10px
+
+	.form-group
+		padding-right 5px
+
+	input.form-control
+		padding .39rem .75rem
+		border-radius 0
+		&.player-x
+			border-color lightness($blue-0, 65%)
+		&.player-o
+			border-color lightness($green-0, 65%)

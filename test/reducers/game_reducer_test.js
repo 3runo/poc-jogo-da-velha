@@ -38,7 +38,7 @@ describe('GAME REDUCER', () => {
 
 	describe('REDUCER UTILITY FUNCIONS', () => {
 		it('Should return a string information after player turn ends', () => {
-			expect(randomAfterPlayerTurnMessages('X', 'O')).to.be.a('string')
+			expect(randomAfterPlayerTurnMessages('X')).to.be.a('string')
 		})
 		
 		it('Should return a string information after game over', () => {

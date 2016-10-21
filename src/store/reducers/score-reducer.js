@@ -1,8 +1,8 @@
 import { ACTIONS } from '../actions'
 
 export const initialState = {
-	playerX: 0,
-	playerO: 0
+	scorePlayerX: 0,
+	scorePlayerO: 0
 }
 
 export default function scoreReducerDefinition(state = initialState, action) {
@@ -14,11 +14,12 @@ export default function scoreReducerDefinition(state = initialState, action) {
 
 	switch (type) {
 		case ACTIONS.GAME_OVER: {
-			const prop = payload.turn === 'X' ? 'playerO' : 'playerX'
+			const prop = payload.turn === 'X' ? 'scorePlayerO' : 'scorePlayerX'
 			const value = parseInt(state[prop], 10) + 1
 
 			return { ...state, [prop]: value }
 		}
+		
 		case ACTIONS.SCORE_RESET: 
 			return initialState
 	}

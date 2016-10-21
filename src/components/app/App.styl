@@ -1,4 +1,5 @@
 @import './../../style/colors.styl'
+@import './../../style/transition'
 
 body
 	color $darker
@@ -10,3 +11,23 @@ body
 	max-width 600px
 	width 100%
 	margin 40px auto
+
+	button.reticent-button
+		background-color darken($lighter, 2%)
+		width 100%
+		font-size 12px
+		text-transform uppercase
+		font-weight bold
+		outline none
+		margin 0
+		padding 8px 0
+		border 0
+		transition(all .25s ease-in-out)
+		
+		&:hover
+			background-color darken($lighter, 10%)
+	
+	button.reticent-button.inverse
+		background-color darken($lighter, 10%)
+		&:hover
+			background-color darken($lighter, 2%)

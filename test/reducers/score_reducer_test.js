@@ -12,7 +12,7 @@ describe('SCORE REDUCER', () => {
 		const payload = { turn: 'X', hasWinner: true }
 
 		expect(ScoreReducer(initialState, { type, payload }))
-			.to.have.property('playerO')
+			.to.have.property('scorePlayerO')
 			.and.equal(1);
 	})
 	
@@ -21,7 +21,7 @@ describe('SCORE REDUCER', () => {
 		const payload = { turn: 'O', hasWinner: true }
 
 		expect(ScoreReducer(initialState, { type, payload }))
-			.to.have.property('playerX')
+			.to.have.property('scorePlayerX')
 			.and.equal(1);
 	})
 	
