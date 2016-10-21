@@ -50,6 +50,7 @@ class Grid extends React.Component {
 
 	// renders
 	renderBoard(boardPositions: TBoardPositions) {
+		// Checking if the board is ok
 		if (isEmpty(boardPositions) || Object.keys(boardPositions).length % 3 !== 0) {
 			return (
 				<tr>
@@ -67,7 +68,11 @@ class Grid extends React.Component {
 				const className = mark ? `marked mark-${mark.toLowerCase()}` : ''
 
 				colums.push(
-					<td key={position} className={className} onClick={() => this.onBoardClick(position)}>
+					<td
+						key={position}
+						className={className}
+						onClick={() => this.onBoardClick(position)}
+					>
 						{mark}
 					</td>
 				)

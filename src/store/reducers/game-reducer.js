@@ -3,6 +3,10 @@ import { ACTIONS } from '../actions'
 export const initialState = {
 	namePlayerX: 'Player X',
 	namePlayerO: 'Player O',
+	turn: 'X',
+	isGameOver: false,
+	winnerKey: '',
+	status: 'X turn',
 	boardPositions: {
 		1: null,
 		2: null,
@@ -13,10 +17,7 @@ export const initialState = {
 		7: null,
 		8: null,
 		9: null,
-	},
-	status: 'X turn',
-	turn: 'X',
-	isGameOver: false
+	}
 }
 
 export default function gameReducerDefinition(state = initialState, action) {
@@ -39,23 +40,28 @@ export default function gameReducerDefinition(state = initialState, action) {
 			return { ...state, turn: nextTurn, boardPositions, status }
 		}
 		case ACTIONS.GAME_OVER: {
-			const lastTurnplayer = payload.turn === 'X' ? 'O' : 'X'
-			let status = randomGameOverMessages(lastTurnplayer)
+			let winnerKey = payload.turn === 'X' ? 'O' : 'X'
+			let status = randomGameOverMessages(payload.turn === 'X' ? state.namePlayerO : state.namePlayerX)
 
 			if (!payload.hasWinner) {
 				status = randomDrawMessages()
+				winnerKey = ''
 			}
 
-			return { ...state, isGameOver: true, status }
+			return { ...state, isGameOver: true, status, winnerKey }
 		}
 		case ACTIONS.UPDATE_PLAYERS_NAME: {
-			const namePlayerX = (typeof payload.namePlayerX === 'string') ? payload.namePlayerX : state.namePlayerX 
-			const namePlayerO = (typeof payload.namePlayerO === 'string') ? payload.namePlayerO : state.namePlayerO 
+			const namePlayerX = (typeof payload.namePlayerX === 'string') ? payload.namePlayerX : state.namePlayerX
+			const namePlayerO = (typeof payload.namePlayerO === 'string') ? payload.namePlayerO : state.namePlayerO
 
 			return { ...state, namePlayerX, namePlayerO }
 		}
-		case ACTIONS.GAME_RESTART:
-			return initialState
+		case ACTIONS.GAME_RESTART: {
+			const namePlayerX = state.namePlayerX
+			const namePlayerO = state.namePlayerO
+
+			return { ...initialState, namePlayerX, namePlayerO }
+		}
 	}
 
 	return state
@@ -66,20 +72,23 @@ export function randomAfterPlayerTurnMessages(nextPlayer) {
 		`${nextPlayer} turn`,
 		`${nextPlayer} is your turn`,
 		`${nextPlayer}, make your move`,
+		`Hey ${nextPlayer}! is your turn`,
+		`Hey ${nextPlayer}, please caprice!`,
 	]
 
-	return messageList[Math.floor(Math.random()*messageList.length)]
+	return messageList[Math.floor(Math.random() * messageList.length)]
 }
 
-export function randomGameOverMessages(lastTurnplayer) {
+export function randomGameOverMessages(lastTurnPlayer) {
 	const messageList = [
-		`The winner is ${lastTurnplayer}.`,
-		`${lastTurnplayer} Won.`,
-		`${lastTurnplayer} is the Winner.`,
-		`The award goes to ${lastTurnplayer}`,
+		`The winner is ${lastTurnPlayer}.`,
+		`${lastTurnPlayer} Won.`,
+		`${lastTurnPlayer} is the Winner.`,
+		`The award goes to ${lastTurnPlayer}`,
+		`Congratulations for the victory, ${lastTurnPlayer}`,
 	]
 
-	return messageList[Math.floor(Math.random()*messageList.length)]
+	return messageList[Math.floor(Math.random() * messageList.length)]
 }
 
 export function randomDrawMessages() {
@@ -92,5 +101,5 @@ export function randomDrawMessages() {
 		'no one loses',
 	]
 
-	return messageList[Math.floor(Math.random()*messageList.length)]
+	return messageList[Math.floor(Math.random() * messageList.length)]
 }

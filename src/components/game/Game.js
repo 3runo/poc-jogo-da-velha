@@ -36,7 +36,11 @@ class Game extends React.Component {
 						namePlayerO={game.namePlayerO}
 					/>
 					<Grid game={game} />
-					<Status status={game.status} />
+					<Status
+						status={game.status}
+						isGameOver={game.isGameOver}
+						winnerKey={game.winnerKey}
+					/>
 					<div className="buttons-area">
 						<button
 							type="button"

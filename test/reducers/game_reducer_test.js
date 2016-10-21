@@ -16,23 +16,31 @@ describe('GAME REDUCER', () => {
 		it('Should handle with GAME_RESTART type action', () => {
 			const type = ACTIONS.GAME_RESTART
 			const payload = {}
-			
+
 			expect(GameReducer(undefined, { type, payload })).to.deep.equal(initialState)
 		})
-		
+
 		it('Should handle with GAME_OVER type action', () => {
 			const type = ACTIONS.GAME_OVER
 			const payload = { turn: 'X', hasWinner: true }
-			
-			expect(GameReducer(undefined, { type, payload })).to.have.property('isGameOver', true);
+
+			expect(GameReducer(undefined, { type, payload })).to.have.property('isGameOver', true)
 		})
-		
+
 		it('Should handle with AFTER_PLAYER_TURN type action', () => {
 			const type = ACTIONS.AFTER_PLAYER_TURN
 			const payload = { position: 1, turn: 'X' }
+
+			expect(GameReducer(undefined, { type, payload })).to.have.property('turn', 'O')
+			expect(GameReducer(undefined, { type, payload })).to.have.property('status').and.not.equal('')
+		})
+
+		it('Should handle with UPDATE_PLAYERS_NAME type action', () => {
+			const type = ACTIONS.UPDATE_PLAYERS_NAME
+			const payload = { namePlayerX: 'AAA', namePlayerO: 'BBB' }
 			
-			expect(GameReducer(undefined, { type, payload })).to.have.property('turn', 'O');
-			expect(GameReducer(undefined, { type, payload })).to.have.property('status').and.not.equal('');
+			expect(GameReducer(undefined, { type, payload })).to.have.property('namePlayerX').and.equal('AAA')
+			expect(GameReducer(undefined, { type, payload })).to.have.property('namePlayerO').and.equal('BBB')
 		})
 	})
 
@@ -40,11 +48,11 @@ describe('GAME REDUCER', () => {
 		it('Should return a string information after player turn ends', () => {
 			expect(randomAfterPlayerTurnMessages('X')).to.be.a('string')
 		})
-		
+
 		it('Should return a string information after game over', () => {
 			expect(randomGameOverMessages('X')).to.be.a('string')
 		})
-		
+
 		it('Should return a string information after game over - draw', () => {
 			expect(randomDrawMessages()).to.be.a('string')
 		})
