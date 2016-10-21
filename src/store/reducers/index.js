@@ -1,3 +1,5 @@
+/* @flow */
+
 import { combineReducers } from 'redux';
 import GameReducer from './game-reducer'
 import ScoreReducer from './score-reducer'

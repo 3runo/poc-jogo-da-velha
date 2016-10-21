@@ -1,16 +1,14 @@
+/* @flow */
+
 import './Status.styl'
 import React from 'react'
 
-export default class Status extends React.Component {
-	static propTypes = {
-		status: React.PropTypes.string.isRequired
-	}
+const Status = ({ status }: { status: string }) => (
+	<div className='Status'>{status}</div>
+)
 
-  render() {
-    return (
-			<div className='Status'>
-				{this.props.status}
-			</div>
-    )
-  }
+Status.propTypes = {
+	status: React.PropTypes.string.isRequired
 }
+
+export default Status;

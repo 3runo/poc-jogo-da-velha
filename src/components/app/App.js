@@ -1,3 +1,5 @@
+/* @flow */
+
 import './App.styl'
 import React from 'react'
 import { Link } from 'react-router'

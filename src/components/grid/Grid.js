@@ -1,3 +1,5 @@
+/* @flow */
+
 import './Grid.styl'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -5,6 +7,7 @@ import { bindActionCreators } from 'redux'
 import { isEmpty } from 'lodash'
 import { onPlayerTurnComplete, gameOver } from './../../store/actions'
 import { hasTheGameAWinner, isThereAnyPositionAvailable } from './../../utility-functions'
+import type { TBoardPositions } from './../../types/index'
 
 class Grid extends React.Component {
 	static propTypes = {
@@ -32,7 +35,7 @@ class Grid extends React.Component {
 		}
 	}
 
-	renderBoard(boardPositions) {
+	renderBoard(boardPositions: TBoardPositions) {
 		if (isEmpty(boardPositions) || Object.keys(boardPositions).length % 3 !== 0) {
 			return (
 				<tr>
@@ -65,7 +68,7 @@ class Grid extends React.Component {
 		return rows
 	}
 
-	onBoardClick = (position) => {
+	onBoardClick = (position: string) => {
 		const { onPlayerTurnComplete, game } = this.props
 		const { boardPositions, turn, isGameOver } = game
 

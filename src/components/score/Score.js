@@ -1,3 +1,5 @@
+/* @flow */
+
 import './Score.styl'
 import React from 'react'
 

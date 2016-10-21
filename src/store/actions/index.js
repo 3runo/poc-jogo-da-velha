@@ -1,3 +1,5 @@
+/* @flow */
+
 export const ACTIONS = {
 	AFTER_PLAYER_TURN: 'AFTER_PLAYER_TURN',
 	GAME_OVER: 'GAME_OVER',
@@ -5,14 +7,14 @@ export const ACTIONS = {
 	SCORE_RESET: 'SCORE_RESET'
 }
 
-export function onPlayerTurnComplete(position, turn) {
+export function onPlayerTurnComplete(position: string, turn: string) {
 	return {
 		type: ACTIONS.AFTER_PLAYER_TURN,
 		payload: { position, turn }
 	}
 }
 
-export function gameOver(turn, hasWinner) {
+export function gameOver(turn: string, hasWinner: boolean) {
 	return {
 		type: ACTIONS.GAME_OVER,
 		payload: { turn, hasWinner }

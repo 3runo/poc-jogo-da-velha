@@ -1,3 +1,5 @@
+/* @flow */
+
 import './Game.styl'
 import React from 'react'
 import { connect } from 'react-redux'
