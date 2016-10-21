@@ -35,6 +35,20 @@ class Grid extends React.Component {
 		}
 	}
 
+	onBoardClick = (position: string) => {
+		const { onPlayerTurnComplete, game } = this.props
+		const { boardPositions, turn, isGameOver } = game
+
+		// Checking if space is available
+		if (isGameOver || boardPositions[position] !== null) {
+			return
+		}
+
+		// Makes the move
+		onPlayerTurnComplete(position, turn)		
+	}
+
+	// renders
 	renderBoard(boardPositions: TBoardPositions) {
 		if (isEmpty(boardPositions) || Object.keys(boardPositions).length % 3 !== 0) {
 			return (
@@ -67,19 +81,6 @@ class Grid extends React.Component {
 
 		return rows
 	}
-
-	onBoardClick = (position: string) => {
-		const { onPlayerTurnComplete, game } = this.props
-		const { boardPositions, turn, isGameOver } = game
-
-		// Checking if space is available
-		if (isGameOver || boardPositions[position] !== null) {
-			return
-		}
-
-		// Makes the move
-		onPlayerTurnComplete(position, turn)		
-	};
 
 	render() {
 		const { boardPositions, isGameOver } = this.props.game

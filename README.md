@@ -1,6 +1,6 @@
 # Tic tac toe (PoC)
 
-A simple game, but it was created with current technologies\* such as ReactJs, Redux, ES6, FlowType, Stylus, etc. With tests included.
+A simple game, but it was created with current\* technologies such as ReactJs, Redux, ES6, FlowType, Stylus, etc. With tests included.
 
 *current year 2016
 
