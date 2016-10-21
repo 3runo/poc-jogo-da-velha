@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
-import Home from './components/Home'
-import Game from './components/Game'
-import App from './components/App'
+import Home from './components/home/Home'
+import Game from './components/game/Game'
+import App from './components/app/App'
 
 export default (
   <Route path="/" component={App}>

@@ -3,7 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { isEmpty } from 'lodash'
-import { onPlayerTurnComplete, gameOver } from './../store/actions/'
+import { onPlayerTurnComplete, gameOver } from './../../store/actions'
+import { hasTheGameAWinner, isThereAnyPositionAvailable } from './../../utility-functions'
 
 class Grid extends React.Component {
 	static propTypes = {
@@ -92,34 +93,6 @@ class Grid extends React.Component {
 	}
 }
 
-// Game helpers
-function hasTheGameAWinner(boardPositions) {
-	const regexp = /^(...)*(X|O)\2\2|(X|O)..\3..\3|(X|O)(...\4){2}|^..(X|O).\6.\6/
-	const stringPositions = boardPositionsToStringFormat(boardPositions)
-
-	return !!stringPositions.match(regexp)
-}
-
-function isThereAnyPositionAvailable(boardPositions) {
-	const stringPositions = boardPositionsToStringFormat(boardPositions)
-
-	return stringPositions.indexOf('-') !== -1
-}
-
-function boardPositionsToStringFormat(boardPositions) {
-	let output = ''
-
-	for (const position in boardPositions) {
-		if (boardPositions.hasOwnProperty(position)) {
-			const mark = boardPositions[position]
-			output += !mark ? '-' : mark
-		}
-	}
-
-	return output
-}
-
-// Redux helpers
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		onPlayerTurnComplete,

@@ -1,6 +1,6 @@
 import { ACTIONS } from '../actions'
 
-const initialState = {
+export const initialState = {
 	boardPositions: {
 		1: null,
 		2: null,
@@ -52,8 +52,7 @@ export default function gameReducerDefinition(state = initialState, action) {
 	return state
 }
 
-
-function randomAfterPlayerTurnMessages(turn, nextTurn) {
+export function randomAfterPlayerTurnMessages(turn, nextTurn) {
 	const messageList = [
 		`Player ${turn} did his move, Player ${nextTurn} is your turn`,
 		`Player ${nextTurn} turn`,
@@ -63,7 +62,7 @@ function randomAfterPlayerTurnMessages(turn, nextTurn) {
 	return messageList[Math.floor(Math.random()*messageList.length)]
 }
 
-function randomGameOverMessages(lastTurn) {
+export function randomGameOverMessages(lastTurn) {
 	const messageList = [
 		`The winner is Player ${lastTurn}.`,
 		`Player ${lastTurn} won.`,
@@ -74,7 +73,7 @@ function randomGameOverMessages(lastTurn) {
 	return messageList[Math.floor(Math.random()*messageList.length)]
 }
 
-function randomDrawMessages() {
+export function randomDrawMessages() {
 	const messageList = [
 		'Play again, let\'s untie this match',
 		'Draw',

@@ -1,13 +1,12 @@
 import './Game.styl'
 import React from 'react'
-// import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { scoreReset, gameRestart } from './../store/actions/'
+import { scoreReset, gameRestart } from './../../store/actions'
 
-import Score from './Score'
-import Grid from './Grid'
-import Status from './Status'
+import Score from './../score/Score'
+import Grid from './../grid/Grid'
+import Status from './../status/Status'
 
 class Game extends React.Component {
 	static propTypes = {
