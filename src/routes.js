@@ -8,9 +8,9 @@ import Game from './components/game/Game'
 import App from './components/app/App'
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="home" component={Home} />
-    <Route path="game" component={Game} />
-  </Route>
+	<Route path="/" component={App}>
+		<IndexRoute component={Home} />
+		<Route path="home" component={Home} />
+		<Route path="game" component={Game} />
+	</Route>
 )

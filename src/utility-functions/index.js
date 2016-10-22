@@ -19,7 +19,7 @@ export function boardPositionsToStringFormat(boardPositions: TBoardPositions) {
 	let output = ''
 
 	if (!boardPositions || typeof boardPositions !== 'object') {
-		return output	
+		return output
 	}
 
 	for (const position in boardPositions) {

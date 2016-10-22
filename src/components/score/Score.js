@@ -11,11 +11,11 @@ export default class Score extends React.Component {
 		namePlayerO: React.PropTypes.string
 	}
 
-  render() {
+	render() {
 		const { turn, score, namePlayerX, namePlayerO } = this.props
 		const { scorePlayerX, scorePlayerO } = score
 
-    return (
+		return (
 			<div className='Score'>
 				<div className={`player-left${turn==='X' ? ' active' : ''}`}>
 					<strong>{namePlayerX}</strong>
@@ -26,6 +26,6 @@ export default class Score extends React.Component {
 					<strong>{namePlayerO}</strong>
 				</div>
 			</div>
-    )
-  }
+		)
+	}
 }

@@ -18,7 +18,7 @@ class Game extends React.Component {
 		scoreReset: React.PropTypes.func.isRequired,
 		gameRestart: React.PropTypes.func.isRequired
 	}
-	
+
 	render() {
 		const { score, game, scoreReset, gameRestart } = this.props
 

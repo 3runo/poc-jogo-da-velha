@@ -15,7 +15,7 @@ describe('SCORE REDUCER', () => {
 			.to.have.property('scorePlayerO')
 			.and.equal(1);
 	})
-	
+
 	it('Should handle with GAME_OVER type action, last turn = "X"', () => {
 		const type = ACTIONS.GAME_OVER
 		const payload = { turn: 'O', hasWinner: true }
@@ -24,7 +24,7 @@ describe('SCORE REDUCER', () => {
 			.to.have.property('scorePlayerX')
 			.and.equal(1);
 	})
-	
+
 	it('Should handle with SCORE_RESET type action', () => {
 		const type = ACTIONS.SCORE_RESET
 		const payload = true

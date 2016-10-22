@@ -19,8 +19,8 @@ export default function scoreReducerDefinition(state = initialState, action) {
 
 			return { ...state, [prop]: value }
 		}
-		
-		case ACTIONS.SCORE_RESET: 
+
+		case ACTIONS.SCORE_RESET:
 			return initialState
 	}
 

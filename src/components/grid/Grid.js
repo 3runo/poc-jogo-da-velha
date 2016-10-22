@@ -29,7 +29,7 @@ class Grid extends React.Component {
 		const hasWinner = hasTheGameAWinner(boardPositions)
 		const hasBoardPosition = isThereAnyPositionAvailable(boardPositions)
 		const _isGameOver = !hasBoardPosition || hasWinner
-		
+
 		if (_isGameOver) {
 			gameOver(turn, hasWinner)
 		}
@@ -45,7 +45,7 @@ class Grid extends React.Component {
 		}
 
 		// Makes the move
-		onPlayerTurnComplete(position, turn)		
+		onPlayerTurnComplete(position, turn)
 	}
 
 	// renders

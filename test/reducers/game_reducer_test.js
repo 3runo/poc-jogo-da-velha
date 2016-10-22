@@ -38,7 +38,7 @@ describe('GAME REDUCER', () => {
 		it('Should handle with UPDATE_PLAYERS_NAME type action', () => {
 			const type = ACTIONS.UPDATE_PLAYERS_NAME
 			const payload = { namePlayerX: 'AAA', namePlayerO: 'BBB' }
-			
+
 			expect(GameReducer(undefined, { type, payload })).to.have.property('namePlayerX').and.equal('AAA')
 			expect(GameReducer(undefined, { type, payload })).to.have.property('namePlayerO').and.equal('BBB')
 		})
